@@ -194,6 +194,8 @@ int head_update(const ObjectID *new_commit) {
 //
 // Returns 0 on success, -1 on error.
 // created a new commit
+
+// We need to ensure the tree is successfully written before finalizing the commit metadata.
 int commit_create(const char *message, ObjectID *commit_id_out) {
     Commit commit;
     memset(&commit, 0, sizeof(Commit)); // Start with a clean slate
